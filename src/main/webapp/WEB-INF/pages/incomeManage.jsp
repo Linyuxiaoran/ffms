@@ -90,7 +90,7 @@
 			url : url,
 			onSubmit : function() { 
 				if ($("#incomer").combobox("getValue") == "" || $("#incomer").combobox("getValue") == null) {
-					$.messager.alert("系统提示", "请选择收入人！");
+					$.messager.alert("系统提示", "请选择收入方！");
 					return false;
 				}
 				if ($("#dataid").combobox("getValue") == "" || $("#dataid").combobox("getValue") == null) {
@@ -174,7 +174,7 @@
 				<th field="cb" checkbox="true" align="center"></th>
 				<th field="id" width="50" align="center" sortable="true">编号</th>
 				<!-- <th field="username" width="100" align="center" sortable="true">记录人</th> -->
-				<th field="incomer" width="100" align="center" sortable="true">收入人</th>
+				<th field="incomer" width="100" align="center" sortable="true">收入方</th>
 				<th field="source" width="100" align="center" sortable="true">收入来源</th>
 				<th field="money" width="100" align="center" sortable="true">金额</th>
 				<th field="datadicvalue" width="100" align="center" sortable="true">收入类型</th>
@@ -194,7 +194,7 @@
 		</div>
 		
 		<div>
-			&nbsp;收入人：&nbsp;<input type="text" id="s_incomer" size="15" onkeydown="if(event.keyCode==13) searchIncome()" />
+			&nbsp;收入方：&nbsp;<input type="text" id="s_incomer" size="15" onkeydown="if(event.keyCode==13) searchIncome()" />
 			&nbsp;收入来源：&nbsp;<input type="text" id="s_source" size="15" onkeydown="if(event.keyCode==13) searchIncome()" />
 			&nbsp;收入类型：&nbsp;<select class="easyui-combobox" id="s_dataid" editable="false" style="width: 100px;">
 				<option value="">请选择...</option>
@@ -213,7 +213,7 @@
 		<form id="fm" method="post">
 			<table cellspacing="8px">
 				<tr>
-					<td>收入人：</td>
+					<td>收入方：</td>
 					<td><select class="easyui-combobox" id="incomer" name="incomer" editable="true" style="width: 175px;">
 							<option value="">请选择...</option>
 							<c:forEach items="${allUsers }" var="alluser">
@@ -264,7 +264,7 @@
 	 		<tr>
 	 			<td>记录人：</td>
 	 			<td><span id="fusername"></span></td>
-	 			<td>收入人：</td>
+	 			<td>收入方：</td>
 	 			<td><span id="fincomer"></span></td>
 	 		</tr>
 	 		<tr>

@@ -134,9 +134,9 @@
 	
 	function formatSex(val){
 		if(val==1){
-			return "男";
+			return "省局";
 		}else if(val==2){
-			return "女";
+			return "地方";
 		}else{
 			return "未定义";
 		}
@@ -195,15 +195,15 @@
 	 		<th field="id" width="50" align="center" sortable="true">编号</th>
 	 		<th field="username" width="100" align="center" sortable="true">用户名</th>
 	 		<th field="password" width="100" align="center" sortable="true">密码</th>
-	 		<th field="sex" width="100" align="center" formatter="formatSex" sortable="true">性别</th>
+	 		<th field="sex" width="100" align="center" formatter="formatSex" sortable="true">权限</th>
 	 		<th field="age" width="100" align="center" sortable="true">年龄</th>
-	 		<th field="truename" width="100" align="center" sortable="true">真实姓名</th>
+	 		<th field="truename" width="100" align="center" sortable="true">操作人员</th>
 	 		<!-- <th field="email" width="100" align="center" sortable="true">邮箱</th>
 	 		<th field="phone" width="100" align="center" sortable="true">联系电话</th>
 	 		<th field="address" width="100" align="center" sortable="true">住址</th> -->
-	 		<th field="appellation" width="100" align="center" sortable="true">家庭称谓</th>
-	 		<th field="salary" width="100" align="center" sortable="true">工资</th>
-	 		<th field="card" width="100" align="center" sortable="true">银行卡号</th>
+	 		<th field="appellation" width="100" align="center" sortable="true">职称</th>
+	 		<th field="salary" width="100" align="center" sortable="true">职位等级</th>
+	 		<th field="card" width="100" align="center" sortable="true">工作编号</th>
 	 		<th field="rolename" width="100" align="center" sortable="true">角色</th>
 	 		<!-- <th field="createtime" width="100" align="center" sortable="true">创建时间</th>
 	 		<th field="updatetime" width="100" align="center" sortable="true">修改时间</th> -->
@@ -223,8 +223,8 @@
 			&nbsp;家庭称谓：&nbsp;<input type="text" id="s_appellation" size="15" onkeydown="if(event.keyCode==13) searchUser()"/>
 			&nbsp;性别：&nbsp;<select class="easyui-combobox" id="s_sex"  editable="false" style="width:140px;">
 					<option value="">请选择...</option>
-					<option value="1">男</option>
-					<option value="2">女</option>
+					<option value="1">省局</option>
+					<option value="2">地方</option>
 				</select>&nbsp;
 			&nbsp;角色：&nbsp;<select class="easyui-combobox" id="s_roleid"  editable="false" style="width:140px;">
 					<option value="">请选择角色...</option>
@@ -248,19 +248,19 @@
 	 				<td><input type="text" id="password" name="password" class="easyui-validatebox easyui-textbox" required="true"/>&nbsp;<font color="red">*</font></td>
 	 			</tr>
 	 			<tr>
-	 				<td>性别：</td>
+	 				<td>权限：</td>
 	 				<td>
 	 					<select class="easyui-combobox" id="sex" name="sex" editable="false" style="width:175px;">
 	 						<option value="" selected>请选择...</option>
-	 						<option value="1">男</option>
-	 						<option value="2">女</option>
+	 						<option value="1">省局</option>
+	 						<option value="2">地方</option>
 	 					</select>&nbsp;<font color="red">*</font></td>
 	 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 	 				<td>年龄：</td>
 	 				<td><input type="text" id="age" name="age" class="easyui-validatebox easyui-numberbox" required="true"/>&nbsp;<font color="red">*</font></td>
 	 			</tr>
 	 			<tr>
-	 				<td>真实姓名：</td>
+	 				<td>操作人员：</td>
 	 				<td><input type="text" id="truename" name="truename" class="easyui-validatebox easyui-textbox" required="true"/>&nbsp;<font color="red">*</font></td>
 	 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 	 				<td>邮箱：</td>
@@ -270,18 +270,18 @@
 	 				<td>联系电话：</td>
 	 				<td><input type="text" id="phone" name="phone" class="easyui-validatebox easyui-textbox" required="true"/>&nbsp;<font color="red">*</font></td>
 	 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-	 				<td>住址：</td>
+	 				<td>单位地址：</td>
 	 				<td><input type="text" id="address" name="address" class="easyui-validatebox easyui-textbox" required="true"/>&nbsp;<font color="red">*</font></td>
 	 			</tr>
 	 			<tr>
-	 				<td>家庭称谓：</td>
+	 				<td>职称：</td>
 	 				<td><input type="text" id="appellation" name="appellation" class="easyui-validatebox easyui-textbox" required="true"/>&nbsp;<font color="red">*</font></td>
 	 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-	 				<td>工资：</td>
+	 				<td>职位等级：</td>
 	 				<td><input type="text" id="salary" name="salary" class="easyui-validatebox easyui-numberbox" required="true"/>&nbsp;<font color="red">*</font></td>
 	 			</tr>
 	 			<tr>
-	 				<td>银行卡号：</td>
+	 				<td>工作编号：</td>
 	 				<td><input type="text" id="card" name="card" class="easyui-validatebox easyui-textbox" required="true"/>&nbsp;<font color="red">*</font></td>
 	 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 	 				<td>用户角色：</td>
@@ -311,13 +311,13 @@
 	 			<td><span id="fpassword"></span></td>
 	 		</tr>
 	 		<tr>
-	 			<td>性别：</td>
+	 			<td>权限：</td>
 	 			<td><span id="fsex"></span></td>
 	 			<td>年龄：</td>
 	 			<td><span id="fage"></span></td>
 	 		</tr>
 	 		<tr>
-	 			<td>真实姓名：</td>
+	 			<td>操作人员：</td>
 	 			<td><span id="ftruename"></span></td>
 	 			<td>邮箱：</td>
 	 			<td><span id="femail"></span></td>
@@ -325,17 +325,17 @@
 	 		<tr>
 	 			<td>联系电话：</td>
 	 			<td><span id="fphone"></span></td>
-	 			<td>住址：</td>
+	 			<td>单位地址：</td>
 	 			<td><span id="faddress"></span></td>
 	 		</tr>
 	 		<tr>
-	 			<td>家庭称谓：</td>
+	 			<td>职称：</td>
 	 			<td><span id="fappellation"></span></td>
-	 			<td>工资：</td>
+	 			<td>职位等级：</td>
 	 			<td><span id="fsalary"></span></td>
 	 		</tr>
 	 		<tr>
-	 			<td>银行卡号：</td>
+	 			<td>工作编号：</td>
 	 			<td><span id="fcard"></span></td>
 	 			<td>用户角色：</td>
 	 			<td><span id="frolename"></span></td>

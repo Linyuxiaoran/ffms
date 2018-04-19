@@ -176,7 +176,7 @@ public class DatabaseController {
 		JSONObject result = new JSONObject();
 		try{
 			Runtime rt = Runtime.getRuntime();
-			Process child = rt.exec("mysqldump -u" + username + " -p" + password + " ffms t_datadic t_income t_pay t_role t_security t_shares t_trade t_user t_user_role ");// 设置导出编码为utf8。这里必须是utf8
+			Process child = rt.exec("mysqldump -u" + username + " -p" + password + " how2java t_datadic t_income t_pay t_role t_security t_shares t_trade t_user t_user_role ");// 设置导出编码为utf8。这里必须是utf8
 			InputStream in = child.getInputStream();// 控制台的输出信息作为输入流
 	
 			InputStreamReader xx = new InputStreamReader(in, "utf8");// 设置输出流编码为utf8。这里必须是utf8，否则从流中读入的是乱码 

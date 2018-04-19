@@ -90,7 +90,7 @@
 			url : url,
 			onSubmit : function() {
 				if ($("#payer").combobox("getValue") == "" || $("#payer").combobox("getValue") == null) {
-					$.messager.alert("系统提示", "请选择支出人！");
+					$.messager.alert("系统提示", "请选择支出方！");
 					return false;
 				}
 				if ($("#dataid").combobox("getValue") == "" || $("#dataid").combobox("getValue") == null) {
@@ -174,7 +174,7 @@
 				<th field="cb" checkbox="true" align="center"></th>
 				<th field="id" width="50" align="center" sortable="true">编号</th>
 				<!-- <th field="username" width="100" align="center" sortable="true">记录人</th> -->
-				<th field="payer" width="100" align="center" sortable="true">支出人</th>
+				<th field="payer" width="100" align="center" sortable="true">支出方</th>
 				<th field="tword" width="100" align="center" sortable="true">支出用途</th>
 				<th field="money" width="100" align="center" sortable="true">金额</th>
 				<th field="datadicvalue" width="100" align="center" sortable="true">支出类型</th>
@@ -193,7 +193,7 @@
 		    <a href="javascript:openPayFindDialog()" class="easyui-linkbutton" iconCls="icon-lsdd" plain="true">查看详细</a>
 		</div>
 		<div>
-			&nbsp;支出人：&nbsp;<input type="text" id="s_payer" size="15" onkeydown="if(event.keyCode==13) searchPay()" />
+			&nbsp;支出方：&nbsp;<input type="text" id="s_payer" size="15" onkeydown="if(event.keyCode==13) searchPay()" />
 			&nbsp;支出用途：&nbsp;<input type="text" id="s_tword" size="15" onkeydown="if(event.keyCode==13) searchPay()" />
 			&nbsp;支出类型：&nbsp;<select class="easyui-combobox" id="s_dataid" editable="false" style="width: 100px;">
 				<option value="">请选择...</option>
@@ -213,7 +213,7 @@
 		<form id="fm" method="post">
 			<table cellspacing="8px">
 				<tr>
-				    <td>支出人：</td>
+				    <td>支出方：</td>
 					<td><select class="easyui-combobox" id="payer" name="payer" editable="true" style="width: 175px;">
 							<option value="">请选择...</option>
 							<c:forEach items="${allUsers }" var="alluser">
@@ -263,7 +263,7 @@
 	 		<tr>
 	 			<td>记录人：</td>
 	 			<td><span id="fusername"></span></td>
-	 			<td>支出人：</td>
+	 			<td>支出方：</td>
 	 			<td><span id="fpayer"></span></td>
 	 		</tr>
 	 		<tr>

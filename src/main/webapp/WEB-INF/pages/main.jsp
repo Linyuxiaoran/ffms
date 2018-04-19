@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>家庭理财管理系统主页</title>
+<title>税务管理系统主页</title>
 <link class="uiTheme" rel="stylesheet" type="text/css" href="${basePath}jquery-easyui-1.3.3/themes/<%=themeName %>/easyui.css">
 <link rel="stylesheet" type="text/css" href="${basePath}jquery-easyui-1.3.3/themes/icon.css">
 <script type="text/javascript" src="${basePath}jquery-easyui-1.3.3/jquery.min.js"></script>
@@ -31,29 +31,31 @@
 		$.post("${basePath}moneyAnalysis.do", {}, function(result) {
 			$.messager.show({
                 title:'金额提醒',
-                msg:'您目前的消费金额情况如下：<br/>总收入金额：'+result.totalIncomeMoney+"元。<br/>总支出金额："+result.totalPayMoney+"元。<br/>您的余额为："+result.totalLostMoney+"元。",
+//                 msg:'您目前的税收金额情况如下：<br/>总收入金额：'+result.totalIncomeMoney+"元。<br/>总支出金额："+result.totalPayMoney+"元。<br/>您的余额为："+result.totalLostMoney+"元。",
+				msg:'目前的税务简报如下：<br/>税收收入金额：'+result.totalIncomeMoney+"元。<br/>税务支出金额："+result.totalPayMoney+"元。",
+                timeout:30000,
                 timeout:30000,
                 showType:'show',
                 height:'100%'
             });
 		},"json");
 		setMoneyTime();
-		function setMoneyTime(){
-			setTimeout(function(){
-		        $.post("${basePath}moneyAnalysis.do", {}, function(result) {
-		        	setMoneyTime();
-		        	if(result.totalLostMoney<2000){
-		        		$.messager.show({
-		                     title:'金额提醒',
-		                     msg:'您的余额已不足2000元。<br/>您目前的消费金额情况如下：<br/>总收入金额：'+result.totalIncomeMoney+"元。<br/>总支出金额："+result.totalPayMoney+"元。<br/>您的余额为："+result.totalLostMoney+"元。",
-		                     timeout:20000,
-		                     showType:'show',
-		                     height:'100%'
-		                });
-		        	}
-		    	},"json");
-		    },60000);
-		}
+// 		function setMoneyTime(){
+// 			setTimeout(function(){
+// 		        $.post("${basePath}moneyAnalysis.do", {}, function(result) {
+// 		        	setMoneyTime();
+// 		        	if(result.totalLostMoney<2000){
+// 		        		$.messager.show({
+// 		                     title:'金额提醒',
+// 		                     msg:'您的余额已不足2000元。<br/>您目前的消费金额情况如下：<br/>总收入金额：'+result.totalIncomeMoney+"元。<br/>总支出金额："+result.totalPayMoney+"元。<br/>您的余额为："+result.totalLostMoney+"元。",
+// 		                     timeout:20000,
+// 		                     showType:'show',
+// 		                     height:'100%'
+// 		                });
+// 		        	}
+// 		    	},"json");
+// 		    },60000);
+// 		}
 	});
 	
 	var url;
@@ -207,32 +209,38 @@
 	<div region="west" style="width: 200px" title="导航菜单" split="true">
 		<div class="easyui-accordion" data-options="fit:true,border:false">
 			<div title="收支管理" data-options="selected:true,iconCls:'icon-yxgl'" style="padding: 10px">
-				<a href="javascript:openTab('收入信息维护','incomeManage.do','icon-yxjhgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-yxjhgl'" style="width: 150px;">收入信息维护</a> 
-				<a href="javascript:openTab('支出信息维护','payManage.do','icon-khkfjh')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khkfjh'" style="width: 150px;">支出信息维护</a>
+				<a href="javascript:openTab('收入信息维护','incomeManage.do','icon-yxjhgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-yxjhgl'" style="width: 150px;">税收信息记录</a> 
+				<a href="javascript:openTab('支出信息维护','payManage.do','icon-khkfjh')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khkfjh'" style="width: 150px;">税务支出记录</a>
 			</div>
-			<div title="财务管理" data-options="iconCls:'icon-khgl'" style="padding: 10px;">
-				<a href="javascript:openTab('证券帐户管理','securityManage.do','icon-khxxgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khxxgl'" style="width: 150px;">证券帐户管理</a>
-				<a href="javascript:openTab('持股管理','sharesManage.do','icon-khlsgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khlsgl'" style="width: 150px;">持股管理</a> 
-				<a href="javascript:openTab('证券流水账管理','tradeManage.do','icon-khlsgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khlsgl'" style="width: 150px;">证券流水账管理</a>
+<!-- 			<div title="财务管理" data-options="iconCls:'icon-khgl'" style="padding: 10px;"> -->
+<!-- 				<a href="javascript:openTab('证券帐户管理','securityManage.do','icon-khxxgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khxxgl'" style="width: 150px;">证券帐户管理</a> -->
+<!-- 				<a href="javascript:openTab('持股管理','sharesManage.do','icon-khlsgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khlsgl'" style="width: 150px;">持股管理</a>  -->
+<!-- 				<a href="javascript:openTab('证券流水账管理','tradeManage.do','icon-khlsgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khlsgl'" style="width: 150px;">证券流水账管理</a> -->
+<!-- 			</div> -->
+			<div title="企业管理" data-options="iconCls:'icon-khgl'" style="padding: 10px;">
+				<a href="javascript:openTab('企业信息登记','securityManage.do','icon-khxxgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khxxgl'" style="width: 150px;">企业信息登记</a>
+<!-- 				<a href="javascript:openTab('持股管理','sharesManage.do','icon-khlsgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khlsgl'" style="width: 150px;">持股管理</a>  -->
+
 			</div>
 			<div title="报表管理" data-options="iconCls:'icon-chart'" style="padding: 10px">
 				<a href="javascript:openTab('按时间收入报表','incomeTimeManage.do','icon-khgxfx')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khgxfx'" style="width: 150px;">按时间收入报表</a> 
 				<a href="javascript:openTab('按时间支出报表','payTimeManage.do','icon-khgcfx')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khgcfx'" style="width: 150px;">按时间支出报表</a>
-				<a href="javascript:openTab('按类型报表','typePieManage.do','icon-khgcfx')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khgcfx'" style="width: 150px;">按类型报表</a>
+<!-- 				<a href="javascript:openTab('按类型报表','typePieManage.do','icon-khgcfx')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khgcfx'" style="width: 150px;">按类型报表</a> -->
+				<a href="javascript:openTab('数据钻取','tradeManage.do','icon-khlsgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khlsgl'" style="width: 150px;">数据钻取</a>
 			</div>
 			<c:if test="${currentUser.roleid==1 }">
 			<div title="数据库管理" data-options="iconCls:'icon-jcsjgl'" style="padding: 10px">
 				<a href="javascript:openTab('数据库备份','databackManage.do','icon-cpxxgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-cpxxgl'" style="width: 150px;">数据库备份</a>
 				<a href="javascript:openTab('数据库恢复','datarecoverManage.do','icon-cpxxgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-cpxxgl'" style="width: 150px;">数据库恢复</a>
 				<a href="javascript:openTab('数据库初始化','datainitManage.do','icon-cpxxgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-cpxxgl'" style="width: 150px;">数据库初始化</a>
-				<a href="javascript:openTab('数据库整理','dataorderManage.do','icon-cpxxgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-cpxxgl'" style="width: 150px;">数据库整理</a>
+<!-- 				<a href="javascript:openTab('数据库整理','dataorderManage.do','icon-cpxxgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-cpxxgl'" style="width: 150px;">数据库整理</a> -->
 			</div>
 			</c:if>
 			<div title="用户管理" data-options="iconCls:'icon-item'" style="padding: 10px">
 				<c:if test="${currentUser.roleid==1 }">
 					<a href="javascript:openTab('用户信息管理','userManage.do','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 150px;">用户信息管理</a>
 					<a href="javascript:openTab('角色管理','roleManage.do','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 150px;">角色管理</a>
-					<a href="javascript:openTab('数据字典管理','datadicManage.do','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 150px;">数据字典管理</a>
+<!-- 					<a href="javascript:openTab('数据字典管理','datadicManage.do','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 150px;">数据字典管理</a> -->
 				</c:if>
 				<a href="javascript:openMessageModifyDialog()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khxxgl'" style="width: 150px;">修改用户信息</a> 
 				<a href="javascript:openPasswordModifyDialog()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-modifyPassword'" style="width: 150px;">修改密码</a> 
@@ -277,16 +285,16 @@
 	 				<td>用户名：</td>
 	 				<td><input type="text" id="m_username" name="username" class="easyui-validatebox easyui-textbox" required="true" value="${usermessage.username }"/>&nbsp;<font color="red">*</font></td>
 	 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-	 				<td>真实姓名：</td>
+	 				<td>操作人员：</td>
 	 				<td><input type="text" id="truename" name="truename" class="easyui-validatebox easyui-textbox" required="true" value="${usermessage.truename }"/>&nbsp;<font color="red">*</font></td>
 	 			</tr>
 	 			<tr>
-	 				<td>性别：</td>
+	 				<td>权限：</td>
 	 				<td>
 	 					<select class="easyui-combobox" id="sex" name="sex" editable="false" style="width:175px;">
 	 						<option value="">请选择...</option>
-	 						<option value="1" <c:if test="${usermessage.sex==1 }"> selected="selected" </c:if>>男</option>
-	 						<option value="2" <c:if test="${usermessage.sex==2 }"> selected="selected" </c:if>>女</option>
+	 						<option value="1" <c:if test="${usermessage.sex==1 }"> selected="selected" </c:if>>省局</option>
+	 						<option value="2" <c:if test="${usermessage.sex==2 }"> selected="selected" </c:if>>地方</option>
 	 					</select>&nbsp;<font color="red">*</font></td>
 	 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 	 				<td>年龄：</td>
@@ -300,17 +308,17 @@
 	 				<td><input type="text" id="email" name="email" class="easyui-validatebox easyui-textbox" validType="email" required="true" value="${usermessage.email }"/>&nbsp;<font color="red">*</font></td>
 	 			</tr>
 	 			<tr>
-	 				<td>家庭称谓：</td>
+	 				<td>职称：</td>
 	 				<td><input type="text" id="appellation" name="appellation" class="easyui-validatebox easyui-textbox" required="true" value="${usermessage.appellation }"/>&nbsp;<font color="red">*</font></td>
 	 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-	 				<td>住址：</td>
+	 				<td>单位地址：</td>
 	 				<td><input type="text" id="address" name="address" class="easyui-validatebox easyui-textbox" required="true"value="${usermessage.address }"/>&nbsp;<font color="red">*</font></td>
 	 			</tr>
 	 			<tr>
-	 				<td>银行卡号：</td>
+	 				<td>工作编号：</td>
 	 				<td><input type="text" id="card" name="card" class="easyui-validatebox easyui-textbox" required="true" value="${usermessage.card }"/>&nbsp;<font color="red">*</font></td>
 	 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-	 				<td>工资：</td>
+	 				<td>职位等级：</td>
 	 				<td><input type="text" id="salary" name="salary" class="easyui-validatebox easyui-numberbox" required="true" value="${usermessage.salary }"/>&nbsp;<font color="red">*</font></td>
 	 			</tr>
 	 			<tr>

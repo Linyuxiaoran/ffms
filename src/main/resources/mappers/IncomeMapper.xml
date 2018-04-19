@@ -38,9 +38,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				and a.userid=#{userid}
 			</if>
 		</where>
+		order by incometime  DESC
 		<if test="start!=null and size!=null">
-			limit #{start},#{size}
+		     limit #{start},#{size}
 		</if>
+		 
 	</select>
 
 	<select id="getTotalIncome" parameterType="Map" resultType="Long">
@@ -102,8 +104,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from t_income where id=#{id};
 	</delete>
 	
+<!-- 	<select id="getIncomeLine" parameterType="Map" resultMap="IncomeResult"> -->
+<!-- 		select * from t_income a,t_datadic b,t_user c,t_user_role d -->
+<!-- 		<where> -->
+<!-- 			a.dataid=b.id and a.userid=c.id and a.userid=d.userid -->
+<!-- 			<if test="incomer!=null and incomer!='' "> -->
+<!-- 				and a.incomer like #{incomer} -->
+<!-- 			</if> -->
+<!-- 			<if test="starttime!=null and starttime!='' "> -->
+<!-- 				and a.incometime&gt;=#{starttime} -->
+<!-- 			</if> -->
+<!-- 			<if test="endtime!=null and endtime!='' "> -->
+<!-- 				and a.incometime&lt;=#{endtime} -->
+<!-- 			</if> -->
+<!-- 			<if test="userid!=null and roleid!=1"> -->
+<!-- 				and a.userid=#{userid} -->
+<!-- 			</if> -->
+<!-- 			order by a.incometime -->
+<!-- 		</where> -->
+<!-- 	</select> -->
+	
 	<select id="getIncomeLine" parameterType="Map" resultMap="IncomeResult">
-		select * from t_income a,t_datadic b,t_user c,t_user_role d
+	select x.incomer,sum(x.money) as money,left(x.incometime,7) as incometime from 
+		(select a.userid,a.incomer,a.source,a.money,a.dataid,a.incometime, b.datadicname,b.datadicvalue,c.id,c.username,c.truename,d.roleid
+		from t_income a,t_datadic b,t_user c,t_user_role d 
 		<where>
 			a.dataid=b.id and a.userid=c.id and a.userid=d.userid
 			<if test="incomer!=null and incomer!='' ">
@@ -118,8 +142,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="userid!=null and roleid!=1">
 				and a.userid=#{userid}
 			</if>
-			order by a.incometime
+			order by a.incometime) x
 		</where>
+		 group by left(x.incometime,7),incomer 
 	</select>
 	
 	<select id="getIncomer" resultMap="IncomeResult">

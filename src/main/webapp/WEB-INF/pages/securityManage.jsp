@@ -69,7 +69,7 @@
 	}
 
 	function openSecurityAddDialog() {
-		$("#dlg").dialog("open").dialog("setTitle", "添加证券信息");
+		$("#dlg").dialog("open").dialog("setTitle", "添加企业信息");
 		url = "${basePath}securitysave.do";
 	}
 
@@ -170,20 +170,21 @@
 </style>
 </head>
 <body style="margin: 1px;">
-	<table id="dg" title="证券管理" class="easyui-datagrid" fitColumns="true"
+	<table id="dg" title="企业管理" class="easyui-datagrid" fitColumns="true"
 		pagination="true" rownumbers="true" url="${basePath}securitylist.do?roleid=${currentUser.roleid}&userid=${currentUser.id}"
 		fit="true" toolbar="#tb" remoteSort="false" multiSort="true">
 		<thead>
 			<tr>
 				<th field="cb" checkbox="true" align="center"></th>
-				<th field="id" width="50" align="center" sortable="true">编号</th>
-				<th field="username" width="100" align="center" sortable="true">持有人</th>
-				<th field="securityname" width="100" align="center" sortable="true">证券账号</th>
-				<th field="securitypassward" width="100" align="center"  sortable="true">证券密码</th>
-				<th field="company" width="100" align="center" sortable="true">证券公司</th>
-				<th field="datadicvalue" width="100" align="center" sortable="true">证券类型</th>
-				<th field="starttime" width="100" align="center" sortable="true">证券有效开始时间</th>
-				<th field="endtime" width="100" align="center" sortable="true">证券有效截止时间</th>
+<!-- 				<th field="id" width="50" align="center" sortable="true">编号</th> -->
+				<th field="company" width="100" align="center" sortable="true">企业名称</th>
+				
+				<th field="securityname" width="100" align="center" sortable="true">企业编号</th>
+				<th field="securitypassward" width="100" align="center"  sortable="true">注册资本（万元）</th>
+				<th field="username" width="100" align="center" sortable="true">注册地</th>
+				<th field="datadicvalue" width="100" align="center" sortable="true">企业类型</th>
+				<th field="starttime" width="100" align="center" sortable="true">企业登记时间</th>
+<!-- 				<th field="endtime" width="100" align="center" sortable="true">证券有效截止时间</th> -->
 				<!-- <th field="createtime" width="100" align="center" sortable="true">创建时间</th>
 				<th field="updatetime" width="100" align="center" sortable="true">修改时间</th> -->
 			</tr>
@@ -200,15 +201,15 @@
 			<a href="javascript:openSecurityFindDialog()" class="easyui-linkbutton" iconCls="icon-lsdd" plain="true">查看详细</a>
 		</div>
 		<div>
-			&nbsp;持有人：&nbsp;<input type="text" id="s_username" size="12" onkeydown="if(event.keyCode==13) searchSecurity()" />
-			&nbsp;证券公司：&nbsp;<input type="text" id="s_company" size="12" onkeydown="if(event.keyCode==13) searchSecurity()" />
-			&nbsp;证券类型：&nbsp;<select class="easyui-combobox" id="s_dataid" editable="false" style="width: 100px;">
+			&nbsp;注册地：&nbsp;<input type="text" id="s_username" size="12" onkeydown="if(event.keyCode==13) searchSecurity()" />
+			&nbsp;企业名称：&nbsp;<input type="text" id="s_company" size="12" onkeydown="if(event.keyCode==13) searchSecurity()" />
+			&nbsp;企业类型：&nbsp;<select class="easyui-combobox" id="s_dataid" editable="false" style="width: 100px;">
 				<option value="">请选择...</option>
 				<c:forEach items="${securitys }" var="security">
 					<option value="${security.id }">${security.datadicvalue }</option>
 				</c:forEach>
 			</select>&nbsp;
-			&nbsp;证券有效期：&nbsp;<input type="text" id="s_searchStarttime" class="easyui-datetimebox" size="18" onkeydown="if(event.keyCode==13) searchSecurity()"/>
+			&nbsp;注册时间：&nbsp;<input type="text" id="s_searchStarttime" class="easyui-datetimebox" size="18" onkeydown="if(event.keyCode==13) searchSecurity()"/>
 			<span style="font-weight:bold;">&sim;</span>&nbsp;<input type="text" id="s_searchEndtime" class="easyui-datetimebox" size="18" onkeydown="if(event.keyCode==13) searchSecurity()"/>
 			<a href="javascript:searchSecurity()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a> 
 			<a href="javascript:resetSearch()" class="easyui-linkbutton" iconCls="icon-reset" plain="true">清空</a>
@@ -219,7 +220,7 @@
 		<form id="fm" method="post">
 			<table cellspacing="8px">
 				<tr>
-					<td>持有人：</td>
+					<td>注册地：</td>
 					<td><select class="easyui-combobox" id="userid" name="userid" editable="true" style="width: 175px;">
 							<option value="">请选择...</option>
 							<c:forEach items="${allUsers }" var="alluser">
@@ -228,38 +229,38 @@
 						</select>&nbsp;<font color="red">*</font>
 					</td>
 					<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-					<td>证券账号：</td>
+					<td>企业编号：</td>
 					<td><input type="text" id="securityname" name="securityname"
 						class="easyui-validatebox easyui-textbox" required="true" />&nbsp;<font
 						color="red">*</font></td>
 				</tr>
 				<tr>
-					<td>证券密码：</td>
+					<td>注册资本（万元）：</td>
 					<td><input type="text" id="securitypassward" name="securitypassward"
 						class="easyui-validatebox easyui-textbox" required="true" />&nbsp;<font
 						color="red">*</font></td>
 					<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-					<td>证券公司：</td>
+					<td>企业名称：</td>
 					<td><input type="text" id="company" name="company"
 						class="easyui-validatebox easyui-textbox" required="true" />&nbsp;<font
 						color="red">*</font></td>
 				</tr>
 				<tr>
-					<td>证券类型：</td>
+					<td>企业类型：</td>
 					<td><select class="easyui-combobox" id="dataid" name="dataid"
 						editable="false" style="width: 175px;">
-							<option value="">请选择证券类型...</option>
+							<option value="">请选择企业类型...</option>
 							<c:forEach items="${securitys }" var="security">
 								<option value="${security.id }">${security.datadicvalue }</option>
 							</c:forEach>
 					</select>&nbsp;<font color="red">*</font></td>
 					<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-					<td>证券有效开始时间</td>
+					<td>注册时间</td>
 					<td><input id="starttime" name="starttime" class="easyui-datetimebox" required="true" style="width:175px">&nbsp;<font
 						color="red">*</font></td>
 				</tr>
 				<tr>
-					<td>证券有效结束时间</td>
+					<td>到期时间</td>
 					<td><input id="endtime" name="endtime" class="easyui-datetimebox" required="true" style="width:175px">&nbsp;<font
 						color="red">*</font></td>
 				</tr>
@@ -273,26 +274,26 @@
 	<div id="finddlg" class="easyui-dialog" style="width: 670px;height:300px;padding: 10px 20px" closed="true" buttons="#finddlg-buttons">
 	 	<table cellspacing="8px" class="findtable" width="100%">
 	 		<tr>
-	 			<td>持有人：</td>
+	 			<td>注册地：</td>
 	 			<td><span id="fusername"></span></td>
-	 			<td>证券账号：</td>
+	 			<td>企业编号：</td>
 	 			<td><span id="fsecurityname"></span></td>
 	 		</tr>
 	 		<tr>
-	 			<td>证券密码：</td>
+	 			<td>注册资本：</td>
 	 			<td><span id="fsecuritypassward"></span></td>
-	 			<td>证券公司：</td>
+	 			<td>企业名称：</td>
 	 			<td><span id="fcompany"></span></td>
 	 		</tr>
 	 		<tr>
-	 			<td>证券类型：</td>
+	 			<td>企业类型：</td>
 	 			<td><span id="fdatadicvalue"></span></td>
-	 			<td>证券有效开始时间：</td>
+	 			<td>注册时间：</td>
 	 			<td><span id="fstarttime"></span></td>
 	 		</tr>
 	 		<tr>
-	 			<td>证券有效截止时间：</td>
-	 			<td><span id="fendtime"></span></td>
+<!-- 	 			<td>证券有效截止时间：</td> -->
+<!-- 	 			<td><span id="fendtime"></span></td> -->
 	 			<td>创建时间：</td>
 	 			<td><span id="fcreatetime"></span></td>
 	 		</tr>
