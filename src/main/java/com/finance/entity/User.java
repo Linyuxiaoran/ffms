@@ -6,7 +6,7 @@ import java.util.Map;
 
 /**
  * 用户实体
- * @author 赵鹏,zhaopeng
+ * @author linyu
  *
  */
 public class User {

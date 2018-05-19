@@ -7,7 +7,7 @@ import com.finance.entity.Role;
 
 /**
  * 角色
- * @author 赵鹏（zhaopeng）
+ * @author linyu
  *
  */
 public interface RoleService {

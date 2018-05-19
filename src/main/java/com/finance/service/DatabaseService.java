@@ -9,7 +9,7 @@ import com.finance.entity.Database;
 
 /**
  * 数据库管理层的service
- * @author 赵鹏（zhaopeng）
+ * @author linyu
  *
  */
 public interface DatabaseService {

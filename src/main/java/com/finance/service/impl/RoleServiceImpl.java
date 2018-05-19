@@ -11,7 +11,7 @@ import com.finance.entity.Role;
 import com.finance.service.RoleService;
 /**
  * 角色Service实现类
- * @author 赵鹏（zhaopeng）
+ * @author linyu
  */
 @Service("roleService")
 public class RoleServiceImpl implements RoleService{

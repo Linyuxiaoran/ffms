@@ -2,7 +2,7 @@ package com.finance.entity;
 
 /**
  * 数据库管理层的实体
- * @author 赵鹏,zhaopeng
+ * @author linyu
  *
  */
 public class Database {

@@ -172,7 +172,7 @@
 		<thead>
 			<tr>
 				<th field="cb" checkbox="true" align="center"></th>
-				<th field="id" width="50" align="center" sortable="true">编号</th>
+<!-- 				<th field="id" width="50" align="center" sortable="true">编号</th> -->
 				<!-- <th field="username" width="100" align="center" sortable="true">记录人</th> -->
 				<th field="incomer" width="100" align="center" sortable="true">收入方</th>
 				<th field="source" width="100" align="center" sortable="true">收入来源</th>

@@ -7,7 +7,7 @@ import com.finance.entity.User;
 
 /**
  * 用户Dao接口
- * @author 赵鹏（zhaopeng）
+ * @author linyu
  *
  */
 public interface UserDao {

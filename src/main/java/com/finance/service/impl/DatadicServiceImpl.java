@@ -12,7 +12,7 @@ import com.finance.entity.Datadic;
 import com.finance.service.DatadicService;
 /**
  * 数据字典Service接口实现类
- * @author 赵鹏（zhaopeng）
+ * @author linyu
  *
  */
 @Service("datadicService")

@@ -16,7 +16,7 @@ import com.finance.util.DateUtil;
 /**
  * 用户Service实现类
  * 
- * @author 赵鹏（zhaopeng）
+ * @author linyu
  */
 @Service("userService")
 public class UserServiceImpl implements UserService {

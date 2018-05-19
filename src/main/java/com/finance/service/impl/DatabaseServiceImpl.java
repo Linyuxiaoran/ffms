@@ -14,7 +14,7 @@ import com.finance.service.DatabaseService;
 
 /**
  * 数据库管理层的service实现类
- * @author 赵鹏（zhaopeng）
+ * @author linyu
  *
  */
 @Service("databaseService")

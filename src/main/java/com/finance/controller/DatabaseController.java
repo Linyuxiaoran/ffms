@@ -36,7 +36,7 @@ import net.sf.json.JSONObject;
 
 /**
  * 数据库管理的Controller层
- * @author 赵鹏(zhaopeng)
+ * @author linyu
  *
  */
 @Controller

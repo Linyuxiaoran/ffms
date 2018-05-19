@@ -29,15 +29,15 @@
 			}
 		});
 		$.post("${basePath}moneyAnalysis.do", {}, function(result) {
-			$.messager.show({
-                title:'金额提醒',
-//                 msg:'您目前的税收金额情况如下：<br/>总收入金额：'+result.totalIncomeMoney+"元。<br/>总支出金额："+result.totalPayMoney+"元。<br/>您的余额为："+result.totalLostMoney+"元。",
-				msg:'目前的税务简报如下：<br/>税收收入金额：'+result.totalIncomeMoney+"元。<br/>税务支出金额："+result.totalPayMoney+"元。",
-                timeout:30000,
-                timeout:30000,
-                showType:'show',
-                height:'100%'
-            });
+// 			$.messager.show({
+//                 title:'金额提醒',
+// //                 msg:'您目前的税收金额情况如下：<br/>总收入金额：'+result.totalIncomeMoney+"元。<br/>总支出金额："+result.totalPayMoney+"元。<br/>您的余额为："+result.totalLostMoney+"元。",
+// 				msg:'目前的税务简报如下：<br/>税收收入金额：'+result.totalIncomeMoney+"元。<br/>税务支出金额："+result.totalPayMoney+"元。",
+//                 timeout:30000,
+//                 timeout:30000,
+//                 showType:'show',
+//                 height:'100%'
+//             });
 		},"json");
 		setMoneyTime();
 // 		function setMoneyTime(){

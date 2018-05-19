@@ -1,7 +1,7 @@
 package com.finance.entity;
 /**
  * 角色实体
- * @author 赵鹏,zhaopeng
+ * @author linyu
  *
  */
 public class Role {

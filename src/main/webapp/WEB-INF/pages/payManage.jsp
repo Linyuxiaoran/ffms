@@ -172,7 +172,7 @@
 		<thead>
 			<tr>
 				<th field="cb" checkbox="true" align="center"></th>
-				<th field="id" width="50" align="center" sortable="true">编号</th>
+<!-- 				<th field="id" width="50" align="center" sortable="true">编号</th> -->
 				<!-- <th field="username" width="100" align="center" sortable="true">记录人</th> -->
 				<th field="payer" width="100" align="center" sortable="true">支出方</th>
 				<th field="tword" width="100" align="center" sortable="true">支出用途</th>

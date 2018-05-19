@@ -6,7 +6,7 @@ import java.util.Map;
 import com.finance.entity.Datadic;
 /**
  * 数据字典Service接口
- * @author 赵鹏（zhaopeng）
+ * @author linyu
  *
  */
 public interface DatadicService {

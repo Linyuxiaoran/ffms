@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 /**
- * @author 赵鹏,zhaopeng
+ * @author linyu
  */
 public class CurrentConn{
 

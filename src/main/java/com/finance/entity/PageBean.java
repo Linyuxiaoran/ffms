@@ -2,7 +2,7 @@ package com.finance.entity;
 
 /**
  * 分页Model类
- * @author 赵鹏,zhaopeng
+ * @author linyu
  *
  */
 public class PageBean {

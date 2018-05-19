@@ -7,7 +7,7 @@ import com.finance.entity.Role;
 
 /**
  * 角色dao层
- * @author 赵鹏（zhaopeng）
+ * @author linyu
  *
  */
 public interface RoleDao {

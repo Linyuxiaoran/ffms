@@ -35,7 +35,7 @@ import net.sf.json.JSONObject;
 /**
  * 用户Controller层
  * 
- * @author 赵鹏（zhaopeng）
+ * @author linyu
  *
  */
 @Controller
